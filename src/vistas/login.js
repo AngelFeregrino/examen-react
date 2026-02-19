@@ -9,9 +9,8 @@ function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-
     if (username === "admin" && password === "1234") {
-      localStorage.setItem("token", "fake-jwt-token");
+      localStorage.setItem("token", "fake-token");
       navigate("/dashboard");
     } else {
       alert("Credenciales incorrectas");
@@ -40,6 +39,15 @@ function Login() {
         />
 
         <button type="submit">Entrar</button>
+
+        {/* 🔥 BOTÓN NUEVO */}
+        <button
+          type="button"
+          onClick={() => navigate("/signup")}
+          style={{ marginTop: "10px" }}
+        >
+          Registrarse
+        </button>
       </form>
     </div>
   );

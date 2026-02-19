@@ -10,7 +10,7 @@ function Signup() {
   const handleSignup = (e) => {
     e.preventDefault();
 
-    // 🔥 Aquí luego irá tu fetch a PHP
+    
     console.log({ username, email, password });
 
     alert("Usuario registrado (simulado)");

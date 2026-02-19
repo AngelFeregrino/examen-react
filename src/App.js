@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./componentes/barra";
 import Login from "./vistas/login";
 import Dashboard from "./vistas/Dashboard";
@@ -12,16 +12,22 @@ function Layout() {
     <>
       {token && <Navbar />}
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+  <Route path="/" element={<Navigate to="/login" />} />
+  <Route path="/login" element={<Login />} />
+  <Route path="/signup" element={<Signup />} />
+
+  <Route
+    path="/dashboard"
+    element={
+      <ProtectedRoute>
+        <>
+          <Navbar />
+          <Dashboard />
+        </>
+      </ProtectedRoute>
+    }
+  />
+</Routes>
     </>
   );
 }
